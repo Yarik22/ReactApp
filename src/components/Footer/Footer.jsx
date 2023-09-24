@@ -1,17 +1,17 @@
-import "../styles/footer.scss";
+import "./footer.scss";
 
 //To do:
 //  - Add contact links
 function Footer() {
   return (
-    <div>
+    <>
       <footer>
         <div>
           <p>&copy; {new Date().getFullYear()} GymBumstead</p>
           <p>Email: popov.yarik.popov@gmail.com</p>
         </div>
       </footer>
-    </div>
+    </>
   );
 }
 
