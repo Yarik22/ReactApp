@@ -1,0 +1,13 @@
+@import "../colors.scss";
+
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.content {
+  background: $secondary-color;
+  color: $secondary-text-color;
+  width: 100%;
+}
