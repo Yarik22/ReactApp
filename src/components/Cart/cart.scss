@@ -1,0 +1,104 @@
+@import "../../colors.scss";
+@import "../../fonts.scss";
+.wrappercart {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  text-align: center;
+  section {
+    p {
+      font-size: 20px;
+    }
+    width: 90vw;
+    position: relative;
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+    color: $primary-text-color;
+    font-weight: bolder;
+    font-family: "Oswald";
+    box-sizing: content-box;
+    margin: 10px;
+    padding: 20px;
+    box-shadow: 0px 10px 15px black;
+    text-wrap: wrap;
+    img {
+      transition: 1s;
+      transition-timing-function: cubic-bezier(0.23, 1, 0.32, 1);
+    }
+    @media (max-width: 1360px) {
+      img {
+        width: 50%;
+      }
+    }
+    @media (min-width: 1361px) {
+      button {
+        transform: translate(10vw);
+        transition: 0.6s;
+        transition-timing-function: cubic-bezier(0.23, 1, 0.32, 1);
+        position: absolute;
+        top: 75%;
+        left: 50%;
+        resize: none;
+        width: 30%;
+        font-size: 20px;
+        font-weight: lighter;
+        opacity: 0;
+      }
+      textarea {
+        transform: translate(10vw);
+        transition: 0.6s;
+        transition-timing-function: cubic-bezier(0.23, 1, 0.32, 1);
+        position: absolute;
+        top: 25%;
+        left: 50%;
+        resize: none;
+        width: 30%;
+        font-size: 20px;
+        font-weight: lighter;
+        opacity: 0;
+        height: calc(10vh + 15vw);
+      }
+      &::after {
+        color: white;
+        opacity: 0;
+        transition: 1s;
+        transition-timing-function: cubic-bezier(0.23, 1, 0.32, 1);
+        width: 40%;
+        content: "Leave your comments here";
+        position: absolute;
+        top: 10%;
+        left: 40%;
+        letter-spacing: 10px;
+        font-size: 200%;
+      }
+      &:hover {
+        textarea {
+          transform: translate(5vw);
+          opacity: 100%;
+        }
+        button {
+          transform: translate(5vw);
+          opacity: 100%;
+        }
+        &::after {
+          opacity: 100%;
+          color: black;
+          z-index: 1;
+          width: 40%;
+          content: "Leave your comments here";
+          position: absolute;
+          top: 10%;
+          left: 50%;
+          letter-spacing: 10px;
+          font-size: 200%;
+        }
+        cursor: pointer;
+        img {
+          transform: translateX(-20vw);
+        }
+      }
+    }
+  }
+}

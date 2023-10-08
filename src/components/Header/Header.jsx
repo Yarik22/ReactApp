@@ -1,11 +1,18 @@
 import "./header.scss";
 import LoginIcon from "@mui/icons-material/Login";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+import HomeIcon from "@mui/icons-material/Home";
 import GoogleIcon from "@mui/icons-material/Google";
 import LogoutIcon from "@mui/icons-material/Logout";
 //To do:
 //  - Add routing
-function Header({ goodsCheckedAmount, isSigned, setIsSigned }) {
+function Header({
+  goodsCheckedAmount,
+  isSigned,
+  setIsSigned,
+  setIsInCart,
+  isInCart,
+}) {
   const changeSigned = () => {
     setIsSigned(!isSigned);
   };
@@ -24,8 +31,16 @@ function Header({ goodsCheckedAmount, isSigned, setIsSigned }) {
           </li>
           <li>
             <div>
-              {!goodsCheckedAmount ? null : <p>{goodsCheckedAmount}</p>}
-              <ShoppingCartIcon />
+              {!isInCart ? (
+                <>
+                  {!goodsCheckedAmount ? null : <p>{goodsCheckedAmount}</p>}
+                  <ShoppingCartIcon
+                    onClick={() => setIsInCart((prev) => !prev)}
+                  />
+                </>
+              ) : (
+                <HomeIcon onClick={() => setIsInCart((prev) => !prev)} />
+              )}
             </div>
             {isSigned ? (
               <>

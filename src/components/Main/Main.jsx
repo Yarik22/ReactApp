@@ -1,9 +1,8 @@
-import { useState } from "react";
 import "./main.scss";
 import DoneIcon from "@mui/icons-material/Done";
 //To do:
 //  - Add content
-function Main({goods,setGoods}) {
+function Main({ goods, setGoods }) {
   const changeChecked = (idx) => {
     const updatedGoods = [...goods];
     const isCurrentGoodChecked = updatedGoods[idx].checked;
@@ -11,21 +10,20 @@ function Main({goods,setGoods}) {
     setGoods(updatedGoods);
   };
   return (
-    <>
-      <div className="wrapper">
-        {goods.map((item, idx) => (
-          <section
-            key={idx}
-            className={item.checked ? "checked" : null}
-            onClick={() => changeChecked(idx)}
-          >
-            {item.checked ? <DoneIcon /> : null}
-            <img src={item.url} alt={`Image ${idx + 1}`} />
-            <p>{item.name}</p>
-          </section>
-        ))}
-      </div>
-    </>
+    <div className="wrapper">
+      {goods.map((item, idx) => (
+        <section
+          key={idx}
+          className={item.checked ? "checked" : null}
+          onClick={() => changeChecked(idx)}
+        >
+          <p>{item.price}</p>
+          {item.checked ? <DoneIcon /> : null}
+          <img src={item.url} alt={`Image ${idx + 1}`} />
+          <p>{item.name}</p>
+        </section>
+      ))}
+    </div>
   );
 }
 
