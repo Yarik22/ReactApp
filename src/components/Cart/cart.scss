@@ -31,6 +31,12 @@
       img {
         width: 50%;
       }
+      textarea {
+        width: 100%;
+      }
+      button {
+        width: 100%;
+      }
     }
     @media (min-width: 1361px) {
       button {
@@ -94,7 +100,6 @@
           letter-spacing: 10px;
           font-size: 200%;
         }
-        cursor: pointer;
         img {
           transform: translateX(-20vw);
         }

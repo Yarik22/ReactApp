@@ -4,14 +4,20 @@ import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import HomeIcon from "@mui/icons-material/Home";
 import GoogleIcon from "@mui/icons-material/Google";
 import LogoutIcon from "@mui/icons-material/Logout";
+import CurrencyDropdown from "../CurrencyDropdown/CurrencyDropdown";
 //To do:
 //  - Add routing
+
 function Header({
   goodsCheckedAmount,
   isSigned,
   setIsSigned,
   setIsInCart,
   isInCart,
+  selectedCurency,
+  setSelectedCurency,
+  changeCurrency,
+  currency,
 }) {
   const changeSigned = () => {
     setIsSigned(!isSigned);
@@ -20,6 +26,14 @@ function Header({
     <header>
       <nav>
         <ul>
+          <li className="dropdown">
+            <CurrencyDropdown
+              selectedCurency={selectedCurency}
+              setSelectedCurency={setSelectedCurency}
+              changeCurrency={changeCurrency}
+              currency={currency}
+            />
+          </li>
           <li>
             <a href="#">Home</a>
           </li>
@@ -41,15 +55,17 @@ function Header({
               ) : (
                 <HomeIcon onClick={() => setIsInCart((prev) => !prev)} />
               )}
+              {isSigned ? (
+                <>
+                  <LoginIcon onClick={changeSigned} />
+                  <GoogleIcon onClick={changeSigned} />
+                </>
+              ) : (
+                <>
+                  <LogoutIcon onClick={changeSigned}></LogoutIcon>
+                </>
+              )}
             </div>
-            {isSigned ? (
-              <>
-                <LoginIcon onClick={changeSigned} />
-                <GoogleIcon onClick={changeSigned} />
-              </>
-            ) : (
-              <LogoutIcon onClick={changeSigned}></LogoutIcon>
-            )}
           </li>
         </ul>
       </nav>

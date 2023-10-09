@@ -17,7 +17,9 @@ function Main({ goods, setGoods }) {
           className={item.checked ? "checked" : null}
           onClick={() => changeChecked(idx)}
         >
-          <p>{item.price}</p>
+          <p>
+            {item.price} {item.currency}
+          </p>
           {item.checked ? <DoneIcon /> : null}
           <img src={item.url} alt={`Image ${idx + 1}`} />
           <p>{item.name}</p>
