@@ -10,7 +10,6 @@ function App() {
   const [isSigned, setIsSigned] = useState(false);
   const [currency, setCurrency] = useState(null);
   const [selectedCurency, setSelectedCurency] = useState("USD");
-  console.log(selectedCurency);
   const fetchCurrency = async () => {
     try {
       const response = await fetch(currencyAPIUrl);
@@ -31,14 +30,12 @@ function App() {
       currency: newCurrency,
       price: Math.floor(item.USDprice * mult),
     }));
-    console.log(newGoods);
     setGoods(newGoods);
   };
   useEffect(() => {
     fetchCurrency().then((data) => {
       if (data !== null) {
         setCurrency(data);
-        console.log(data);
       }
     });
   }, []);
@@ -49,8 +46,8 @@ function App() {
       checked: false,
       description:
         "Some description................. ................... ..................... .................... ........................................",
-      price: 500,
-      USDprice: 500,
+      price: 50,
+      USDprice: 50,
       currency: "USD",
     },
     {
@@ -59,8 +56,8 @@ function App() {
       checked: false,
       description:
         "Some description................. ................... ..................... .................... ........................................",
-      price: 500,
-      USDprice: 500,
+      price: 50,
+      USDprice: 50,
       currency: "USD",
     },
     {
@@ -69,8 +66,8 @@ function App() {
       checked: false,
       description:
         "Some description................. ................... ..................... .................... ........................................",
-      price: 500,
-      USDprice: 500,
+      price: 50,
+      USDprice: 50,
       currency: "USD",
     },
     {
@@ -79,8 +76,8 @@ function App() {
       checked: false,
       description:
         "Some description................. ................... ..................... .................... ........................................",
-      price: 500,
-      USDprice: 500,
+      price: 50,
+      USDprice: 50,
       currency: "USD",
     },
     {
@@ -89,8 +86,8 @@ function App() {
       checked: false,
       description:
         "Some description................. ................... ..................... .................... ........................................",
-      price: 500,
-      USDprice: 500,
+      price: 50,
+      USDprice: 50,
       currency: "USD",
     },
     {
@@ -99,8 +96,8 @@ function App() {
       checked: false,
       description:
         "Some description................. ................... ..................... .................... ........................................",
-      price: 500,
-      USDprice: 500,
+      price: 50,
+      USDprice: 50,
       currency: "USD",
     },
     {
@@ -109,8 +106,8 @@ function App() {
       checked: false,
       description:
         "Some description................. ................... ..................... .................... ........................................",
-      price: 500,
-      USDprice: 500,
+      price: 50,
+      USDprice: 50,
       currency: "USD",
     },
     {
@@ -119,8 +116,8 @@ function App() {
       checked: false,
       description:
         "Some description................. ................... ..................... .................... ........................................",
-      price: 500,
-      USDprice: 500,
+      price: 50,
+      USDprice: 50,
       currency: "USD",
     },
   ]);
