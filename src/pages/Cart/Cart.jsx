@@ -1,7 +1,11 @@
 import React, { useState } from "react";
 import "./cart.scss";
 import { Button } from "@mui/material";
-export default function Cart({ checkedGoods }) {
+import useGlobalStore from "../../store/zustand";
+export default function Cart() {
+  const checkedGoods = useGlobalStore((state) =>
+    state.goods.filter((v) => v.checked)
+  );
   const handleSubmit = (event) => {
     event.preventDefault();
     console.log("Ваш відгук:", event.target.comment.value);

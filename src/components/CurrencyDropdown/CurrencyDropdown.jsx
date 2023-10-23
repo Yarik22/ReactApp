@@ -4,17 +4,14 @@ import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 import { useState } from "react";
+import useGlobalStore from "../../store/zustand";
 
 const options = ["USD", "UAH", "EUR"];
 
 const ITEM_HEIGHT = 48;
 
-export default function CurrencyDropdown({
-  selectedCurency,
-  setSelectedCurency,
-  changeCurrency,
-  currency,
-}) {
+export default function CurrencyDropdown({ setSelectedCurency, currency }) {
+  const changeCurrency = useGlobalStore((state) => state.changeCurrency);
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
   const handleClick = (event) => {

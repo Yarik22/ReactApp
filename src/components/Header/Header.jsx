@@ -4,23 +4,27 @@ import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import HomeIcon from "@mui/icons-material/Home";
 import GoogleIcon from "@mui/icons-material/Google";
 import LogoutIcon from "@mui/icons-material/Logout";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import useGlobalStore from "../../store/zustand";
 import CurrencyDropdown from "../CurrencyDropdown/CurrencyDropdown";
-//To do:
-//  - Add routing
+import useLoggedState from "../../hooks/useLoggedState";
 
-function Header({
-  goodsCheckedAmount,
-  isSigned,
-  setIsSigned,
-  setIsInCart,
-  isInCart,
-  selectedCurency,
-  setSelectedCurency,
-  changeCurrency,
-  currency,
-}) {
+function Header() {
+  const setSelectedCurency = useGlobalStore(
+    (state) => state.setSelectedCurency
+  );
+  const [value, setValue] = useLoggedState();
+  const currency = useGlobalStore((state) => state.currency);
+  const location = useLocation();
+  const navigate = useNavigate();
+  const goodsCheckedAmount = useGlobalStore(
+    (state) => state.goods.filter((v) => v.checked).length
+  );
+  const isSigned = useGlobalStore((state) => state.isSigned);
+  const toggleSigned = useGlobalStore((state) => state.toggleSigned);
   const changeSigned = () => {
-    setIsSigned(!isSigned);
+    toggleSigned();
+    setValue(prev=>prev+1);
   };
   return (
     <header>
@@ -28,9 +32,7 @@ function Header({
         <ul>
           <li className="dropdown">
             <CurrencyDropdown
-              selectedCurency={selectedCurency}
               setSelectedCurency={setSelectedCurency}
-              changeCurrency={changeCurrency}
               currency={currency}
             />
           </li>
@@ -45,15 +47,13 @@ function Header({
           </li>
           <li>
             <div>
-              {!isInCart ? (
+              {!(location.pathname == "/cart") ? (
                 <>
                   {!goodsCheckedAmount ? null : <p>{goodsCheckedAmount}</p>}
-                  <ShoppingCartIcon
-                    onClick={() => setIsInCart((prev) => !prev)}
-                  />
+                  <ShoppingCartIcon onClick={() => navigate("/cart")} />
                 </>
               ) : (
-                <HomeIcon onClick={() => setIsInCart((prev) => !prev)} />
+                <HomeIcon onClick={() => navigate("/")} style={{ margin: 0 }} />
               )}
               {isSigned ? (
                 <>
