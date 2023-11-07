@@ -30,12 +30,14 @@ header {
         margin: 0 0 0 5vw;
       }
       div {
-        @media (max-width: 1360px) {
-          transform: translateX(-30px);
+        .themeSwitcher {
+          position: fixed;
+          top: 0;
+          right: 0;
         }
         @media (max-width: 560px) {
-          transform: translateX(0px);
-          flex-wrap: wrap;
+          display: none;
+  
         }
         display: flex;
         P {

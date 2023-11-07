@@ -7,13 +7,15 @@ import LogoutIcon from "@mui/icons-material/Logout";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import useGlobalStore from "../../store/zustand";
 import CurrencyDropdown from "../CurrencyDropdown/CurrencyDropdown";
-import useLoggedState from "../../hooks/useLoggedState";
+import ThemeSwitch from "../ThemeSwitch/ThemeSwitch";
+import { AuthContext } from "../../HOC/Layouts/Providers/AuthProvider";
+import { useContext } from "react";
 
 function Header() {
+  const auth = useContext(AuthContext);
   const setSelectedCurency = useGlobalStore(
     (state) => state.setSelectedCurency
   );
-  const [value, setValue] = useLoggedState();
   const currency = useGlobalStore((state) => state.currency);
   const location = useLocation();
   const navigate = useNavigate();
@@ -22,9 +24,10 @@ function Header() {
   );
   const isSigned = useGlobalStore((state) => state.isSigned);
   const toggleSigned = useGlobalStore((state) => state.toggleSigned);
+  console.log(auth);
   const changeSigned = () => {
     toggleSigned();
-    setValue(prev=>prev+1);
+    auth.toggleAuth();
   };
   return (
     <header>
@@ -37,13 +40,13 @@ function Header() {
             />
           </li>
           <li>
-            <a href="#">Home</a>
+            <Link to="/home">Home</Link>
           </li>
           <li>
-            <a href="#">Profile</a>
+            <Link to="/profile">Profile</Link>
           </li>
           <li>
-            <a href="#">Search</a>
+            <Link to="/search">Search</Link>
           </li>
           <li>
             <div>
@@ -53,9 +56,11 @@ function Header() {
                   <ShoppingCartIcon onClick={() => navigate("/cart")} />
                 </>
               ) : (
-                <HomeIcon onClick={() => navigate("/")} style={{ margin: 0 }} />
+                <>
+                  <HomeIcon onClick={() => navigate("/")} />
+                </>
               )}
-              {isSigned ? (
+              {!auth.isAuth ? (
                 <>
                   <LoginIcon onClick={changeSigned} />
                   <GoogleIcon onClick={changeSigned} />
@@ -65,6 +70,9 @@ function Header() {
                   <LogoutIcon onClick={changeSigned}></LogoutIcon>
                 </>
               )}
+              <div className="themeSwitcher">
+                <ThemeSwitch />
+              </div>
             </div>
           </li>
         </ul>
