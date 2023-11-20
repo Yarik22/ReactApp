@@ -10,6 +10,7 @@ import CurrencyDropdown from "../CurrencyDropdown/CurrencyDropdown";
 import ThemeSwitch from "../ThemeSwitch/ThemeSwitch";
 import { AuthContext } from "../../HOC/Layouts/Providers/AuthProvider";
 import { useContext } from "react";
+import AuthModal from "../AuthModal/AuthModal";
 
 function Header() {
   const auth = useContext(AuthContext);
@@ -77,6 +78,7 @@ function Header() {
           </li>
         </ul>
       </nav>
+      <AuthModal visible={auth.isAuth} onCancel={auth.toggleAuth} />
     </header>
   );
 }

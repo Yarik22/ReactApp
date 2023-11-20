@@ -1,8 +1,7 @@
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useNavigate } from "react-router-dom";
 import Landing from "./pages/Landing/Landing";
 import "./app.scss";
 import useGlobalStore from "./store/zustand";
-import LandingLayout from "./HOC/Layouts/LandingLayout";
 import { useEffect } from "react";
 import Cart from "./pages/Cart/Cart";
 import Home from "./pages/Home/Home";
@@ -12,7 +11,10 @@ import Debug from "./pages/Debug/Debug";
 import useLocationPath from "./hooks/useLocationPath";
 import ThemeProvider from "./HOC/Layouts/Providers/ThemeProvider";
 import AuthProvider from "./HOC/Layouts/Providers/AuthProvider";
+import LandingLayout from "./HOC/Layouts/LandingLayout/LandingLayout";
 function App() {
+  const navigate = useNavigate()
+  console.log(navigate)
   const fetchCurrency = useGlobalStore((state) => state.fetchCurrency);
   const setCheckedGoods = useGlobalStore((state) => state.setCheckedGoods);
   const [path] = useLocationPath();

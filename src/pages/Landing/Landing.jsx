@@ -1,6 +1,6 @@
 import useGlobalStore from "../../store/zustand";
 import DoneIcon from "@mui/icons-material/Done";
-import "./landing.scss";
+import styles from "./landing.module.scss";
 import useLocalStorage from "../../hooks/useLocalStorage";
 function Landing() {
   const goods = useGlobalStore((state) => state.goods);
@@ -15,18 +15,24 @@ function Landing() {
   };
   return (
     <>
-      <div className="wrapper">
+      <div className={styles.wrapper}>
         {goods.map((item, idx) => (
           <section
             key={idx}
-            className={item.checked ? "checked" : null}
+            className={`${item.checked ? styles.checked : null} ${
+              styles.section
+            }`}
             onClick={() => changeChecked(idx)}
           >
             <p>
               {item.price} {item.currency}
             </p>
-            {item.checked ? <DoneIcon /> : null}
-            <img src={item.url} alt={`Image ${idx + 1}`} />
+            {item.checked ? <DoneIcon className={styles.svg} /> : null}
+            <img
+              className={styles.img}
+              src={item.url}
+              alt={`Image ${idx + 1}`}
+            />
             <p>{item.name}</p>
           </section>
         ))}

@@ -14,9 +14,11 @@
     "@emotion/styled": "^11.11.0",
     "@mui/icons-material": "^5.14.9",
     "@mui/material": "^5.14.14",
+    "antd": "^5.11.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.17.0",
+    "react-transition-group": "^4.4.5",
     "sass": "^1.69.4",
     "zustand": "^4.4.4"
   },

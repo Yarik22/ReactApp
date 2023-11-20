@@ -1,7 +1,13 @@
-import React from 'react'
+import React from "react";
+import AnimatedList from "../../components/AnimatedList/AnimatedList";
 
 export default function Home() {
   return (
-    <div>Home</div>
-  )
+    <>
+      <div>
+        <h1>Favourites</h1>
+        <AnimatedList />
+      </div>
+    </>
+  );
 }
