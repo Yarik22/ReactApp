@@ -5,7 +5,7 @@ const currencyAPIUrl = import.meta.env.VITE_APP_CURRENCY_API_URL;
 const goods = [
   {
     id: 1,
-    url: "src/assets/colla_pink_mango.webp",
+    url: "https://gymbeam.ua/media/catalog/product/cache/bf5a31e851f50f3ed6850cbbf183db11/c/o/colla_pink_mango.png",
     name: "Cola pink with mango",
     checked: false,
     description: "Some description...",
@@ -15,7 +15,7 @@ const goods = [
   },
   {
     id: 2,
-    url: "src/assets/hydrtator_gb_grey.webp",
+    url: "https://content.rozetka.com.ua/goods/images/big/370449682.jpg",
     name: "Gym Beam water bottle",
     checked: false,
     description: "Some description...",
@@ -25,7 +25,7 @@ const goods = [
   },
   {
     id: 3,
-    url: "src/assets/just_whey_chocolate_milkshake_1_kg_gymbeam_1.webp",
+    url: "https://gymbeam.ua/media/catalog/product/cache/bf5a31e851f50f3ed6850cbbf183db11/j/u/just_whey_chocolate_milkshake_1_kg_gymbeam_1.png",
     name: "Just Whey chocolate milkshake",
     checked: false,
     description: "Some description...",
@@ -35,8 +35,8 @@ const goods = [
   },
   {
     id: 4,
-    url: "src/assets/jw2kg_gift_011.webp",
-    name: "Just Whey mixed milkshake and gifts",
+    url: "https://gymbeam.ua/media/catalog/product/cache/bf5a31e851f50f3ed6850cbbf183db11/j/u/just_whey_vanilla_icecream_2_kg_gymbeam_1.png",
+    name: "Just Whey mixed milkshake",
     checked: false,
     description: "Some description...",
     price: 50,
@@ -45,7 +45,7 @@ const goods = [
   },
   {
     id: 5,
-    url: "src/assets/peanut_butter_smooth_900g.webp",
+    url: "https://gymbeam.ua/media/catalog/product/cache/bf5a31e851f50f3ed6850cbbf183db11/p/e/peanut_butter_crunchy_900g.png",
     name: "Peanut butter",
     checked: false,
     description: "Some description...",
@@ -55,7 +55,7 @@ const goods = [
   },
   {
     id: 6,
-    url: "src/assets/vitality_complex_120_tabs_gymbeam.webp",
+    url: "https://gymbeam.ua/media/catalog/product/cache/bf5a31e851f50f3ed6850cbbf183db11/v/i/vitality_complex_120_tabs_gymbeam.png",
     name: "Vitality complex box",
     checked: false,
     description: "Some description...",
@@ -65,7 +65,7 @@ const goods = [
   },
   {
     id: 7,
-    url: "src/assets/vitamin_d3_1000_iu_120_caps_gymbeam.webp",
+    url: "https://gymbeam.ua/media/catalog/product/cache/bf5a31e851f50f3ed6850cbbf183db11/v/i/vitamin_d3_1000_iu_120_caps_gymbeam.png",
     name: "Vitamin D3 box",
     checked: false,
     description: "Some description...",
@@ -75,7 +75,7 @@ const goods = [
   },
   {
     id: 8,
-    url: "src/assets/vitaminc_30_1.webp",
+    url: "https://gymbeam.ua/media/catalog/product/cache/bf5a31e851f50f3ed6850cbbf183db11/v/i/vitaminc_30_1.jpg",
     name: "Vitamin C box",
     checked: false,
     description: "Some description...",
