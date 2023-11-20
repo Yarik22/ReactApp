@@ -1,5 +1,5 @@
 import React, { createContext } from "react";
-import useToggle from "../../../hooks/UseToggle";
+import useToggle from "../../../hooks/useToggle";
 
 export const AuthContext = createContext();
 
@@ -11,4 +11,3 @@ export default function AuthProvider({ children }) {
   };
   return <AuthContext.Provider value={auth}>{children}</AuthContext.Provider>;
 }
- 
